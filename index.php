@@ -2,58 +2,31 @@
 <html>
 
 <head>
+    <!-- Importation de la bibliothèque Font Awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <style>
-        /* Styles pour le bouton de mode sombre */
-        #dark-mode-btn {
-            position: absolute;
-            /* positionne le bouton en haut à droite */
-            top: 10px;
-            right: 10px;
+    <!-- Importation des feuilles de style pour la page -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript">
+        // déclaration de la fonction toggleDarkMode qui permet de basculer entre les modes sombre et clair
+        function toggleDarkMode() {
+            // Récupération de l'élément body de la page
+            var body = document.getElementById("body");
+            // Récupération de la valeur de la classe de l'élément body
+            var currentClass = body.className;
+            // Changement de la classe de l'élément body entre "dark-mode" et "light-mode" en fonction de sa valeur actuelle
+            body.className = currentClass == "dark-mode" ? "light-mode" : "dark-mode";
         }
-
-        /* Styles pour le mode sombre */
-        body.dark-mode {
-            background-color: #222;
-            /* couleur de fond sombre */
-            color: #fff;
-            /* couleur de texte claire */
-        }
-
-        /* Styles pour le mode clair */
-        body.light-mode {
-            background-color: #fff;
-            /* couleur de fond claire */
-            color: #222;
-            /* couleur de texte sombre */
-        }
-    </style>
+    </script>
 </head>
 
-<body class="light-mode">
-    <!-- Bouton pour basculer entre les modes sombre et clair -->
-    <button id="dark-mode-btn">
-        <i class="fas fa-moon"></i>
-    </button>
-
-    <script>
-        var darkModeBtn = document.getElementById("dark-mode-btn");
-        // Ecoute de l'événement click sur le bouton
-        darkModeBtn.addEventListener("click", function() {
-            // Récupération de l'élément body
-            var body = document.getElementsByTagName("body")[0];
-            // Si la classe actuelle est "light-mode", on la remplace par "dark-mode"
-            if (body.classList.contains("light-mode")) {
-                body.classList.remove("light-mode");
-                body.classList.add("dark-mode");
-            }
-            // Sinon, si la classe actuelle est "dark-mode", on la remplace par "light-mode"
-            else {
-                body.classList.remove("dark-mode");
-                body.classList.add("light-mode");
-            }
-        });
-    </script>
+<body id="body" class="light-mode">
+    <!-- Élément de conteneur pour aligner les icônes à droite de la page -->
+    <div class="navbar-text ml-auto">
+        <!-- Lien qui appelle la fonction toggleDarkMode lorsqu'il est cliqué, contenant une icône de lune en noir -->
+        <a href="#" onclick="toggleDarkMode()" class="no-underline" style="color: black;"><i class="fas fa-moon"></i></a>
+        <!-- Lien qui appelle la fonction toggleDarkMode lorsqu'il est cliqué, contenant une icône de soleil en blanc -->
+        <a href="#" onclick="toggleDarkMode()" class="no-underline" style="color: white;"><i class="fas fa-sun"></i></a>
+    </div>
 </body>
 
 </html>
